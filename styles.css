@@ -15,25 +15,24 @@ body {
 }
 
 /* Header Styling */
-/* Header Styling */
 header {
     background-color: #004aad;
     color: white;
     padding: 1.5rem 0;
     text-align: center;
     display: flex;
-    flex-direction: column; /* This makes the h1 and p stack vertically */
-    align-items: center; /* Centers the content horizontally */
+    flex-direction: column;  /* Stack h1 and p vertically */
+    align-items: center;
     justify-content: center;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
 }
 
 header .logo {
-    position: absolute;
-    left: 20px;
-    width: 150px;
-    height: 150px;
+    width: 150px;  /* Default logo size */
+    height: 150px; /* Default logo size */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    margin-bottom: 1rem;  /* Adds space between logo and text */
 }
 
 header h1 {
@@ -45,6 +44,46 @@ header p {
     font-size: 1rem;
     margin: 0.5rem 0 0;
 }
+
+/* Media query for smaller devices (mobile phones) */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;  /* Ensure stacking vertically on mobile */
+        align-items: center;  /* Center the content */
+        padding: 1rem 0;
+    }
+
+    header .logo {
+        width: 100px;  /* Smaller logo size on mobile */
+        height: 100px; /* Smaller logo size on mobile */
+        margin-bottom: 1rem;  /* Adds space between logo and text */
+    }
+
+    header h1 {
+        font-size: 1.5rem;  /* Adjust font size for smaller screens */
+    }
+
+    header p {
+        font-size: 0.9rem;  /* Adjust font size for smaller screens */
+    }
+}
+
+/* Media query for medium devices (tablets) */
+@media (max-width: 1024px) {
+    header .logo {
+        width: 120px;  /* Slightly smaller logo on tablets */
+        height: 120px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;  /* Adjust font size for tablets */
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+}
+
 
 /* Main Content Styling */
 main {
