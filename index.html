@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Education Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="logo.png" type="image/png">
+
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Platform Logo" class="logo">
+        <h1>Smart Education Platform</h1>
+        <p>Empowering Rural Youth with Financial and Agricultural Knowledge</p>
+    </header>
+    
+    <main>
+        <section id="videos">
+            <h2>Video Tutorials</h2>
+            <p>Explore our video tutorials on financial literacy, agricultural techniques, and entrepreneurship.</p>
+            <!-- Placeholder for video links -->
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=swXHv0khiWY" target="_blank">Introduction to Financial Literacy</a></li>
+                <li><a href="https://m.youtube.com/watch?v=NCp93xbSwWM" target="_blank">Basics of Crop Management</a></li>
+                <li><a href="https://www.youtube.com/watch?v=c3djHoHBywI" target="_blank">How to Start a Small Business</a></li>
+            </ul>
+        </section>
+        
+        <section id="ebooks">
+            <h2>E-books</h2>
+            <p>Download free e-books covering various topics to expand your knowledge.</p>
+            <!-- Placeholder for e-book links -->
+            <ul>
+                <li><a href="content/ebooks/Financial-Planning.pdf" target="_blank">Financial Planning Basics (PDF)</a></li>
+                <li><a href="content/ebooks/modern-agriculture.pdf" target="_blank">Modern Agriculture Techniques (PDF)</a></li>
+                <li><a href="content/ebooks/Small_Business_Guide.pdf" target="_blank">Small Business Guide (PDF)</a></li>
+            </ul>
+        </section>
+
+        <section id="quizzes">
+            <h2>Quizzes</h2>
+            <p>Test your knowledge with quizzes on financial literacy and agriculture.</p>
+            <!-- Placeholder for quiz links -->
+            <button><a href="quiz/financial_quiz.html"> Financial Literacy Quiz</a></button>
+            <button><a href="quiz/agriculture_quiz.html"> Agriculture Quiz</a></button>
+        </section>
+        
+
+        <section id="progress">
+            <h2>Progress & Rewards</h2>
+            <p>Track your learning progress and earn badges.</p>
+            <div id="rewards">
+                <p>Completed Modules: 3</p>
+                <p>Badges Earned: <span>Financial Literacy</span></p>
+            </div>
+        </section>
+
+        <section id="chatbot">
+            <h2>AI Chatbot</h2>
+            <p>Ask questions about financial literacy and agriculture.</p>
+            <iframe src="https://console.dialogflow.com/api-client/demo/embedded/1b1d757c-2ce6-4f40-8f05-a2814f750120" width="100%" height="400"></iframe>
+        </section>
+
+        <section id="payments">
+            <h2>Certification Courses</h2>
+            <p>Get certified in advanced topics by purchasing courses.</p>
+            
+            <!-- Payment Button -->
+            <button id="pay-button">Pay with UPI</button>
+        
+            <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+            <script>
+                document.getElementById('pay-button').onclick = function () {
+                    var options = {
+                        "key": "YOUR_RAZORPAY_KEY", // Replace with your Razorpay key
+                        "amount": "COURSE_PRICE", // Replace with the actual course price in paise
+                        "currency": "INR",
+                        "order_id": "ORDER_ID", // The order ID generated from Razorpay API
+                        "handler": function (response) {
+                            alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+                            // Here you can save the payment details in your system or redirect user
+                        },
+                        "prefill": {
+                            "name": "CUSTOMER_NAME",
+                            "email": "CUSTOMER_EMAIL",
+                            "contact": "CUSTOMER_PHONE"
+                        },
+                        "theme": {
+                            "color": "#F37254"
+                        },
+                        "method": "upi" // To ensure UPI is selected for the payment method
+                    };
+                    
+                    var rzp = new Razorpay(options);
+                    rzp.open();
+                };
+            </script>
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>© Smart Education for Rural Youth | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
